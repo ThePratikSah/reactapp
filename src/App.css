@@ -3,3 +3,7 @@
   color: white;
   height: 200px;
 }
+
+.header {
+  list-style: none;
+}
