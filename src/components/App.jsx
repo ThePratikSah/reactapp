@@ -1,26 +1,29 @@
-import React from "react";
+import React, {Component} from "react";
 import "../App.css";
 
-class App extends React.Component {
-
-  state = {
-    "header": "Heder from state",
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      "name": "Pratik",
+    }
   }
 
-  buttonChangeHandler = () => {
+  changeName = () => {
     this.setState({
-      "header": "The header text changed!",
-    });
+      "name": "Pratik Sah"
+    })
   }
 
   render() {
     return(
-      <>
-      <h1>{this.state.header}</h1>
-      <button onClick={this.buttonChangeHandler}>Click to change</button>
-      </>
+      <div>
+        <p>{this.state.name}</p>
+        <button onClick={this.changeName}>Change Name</button>
+      </div>
     );
   }
+
 }
 
 export default App;
