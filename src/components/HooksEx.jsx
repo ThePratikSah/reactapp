@@ -1,14 +1,17 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
 const HooksEx = () => {
-    const [name, setname] = useState("Pratik");
-    const nameChangeHandler = () => setname("Pratik Sah");
-    return(
-        <div>
-            <p>{name}</p>
-            <button onClick={nameChangeHandler}>Change Name</button>
-        </div>
-    );
-}
+  const [num, setnum] = useState(0);
+  const incrementVal = () => setnum(num + 1);
+  const decrementVal = () => setnum(num - 1);
+
+  return (
+    <>
+      <button onClick={decrementVal}>-</button>
+      <span>{num}</span>
+      <button onClick={incrementVal}>+</button>
+    </>
+  );
+};
 
 export default HooksEx;
