@@ -1,13 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import App from "./components/App";
-import HooksEx from "./components/HooksEx";
+import App from "./components/App"
 
-ReactDOM.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <HooksEx />
-  </React.StrictMode>,
+ReactDOM.render(<App/>,
   document.getElementById("root")
 );

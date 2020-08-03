@@ -1,29 +1,43 @@
-import React, { Component } from "react";
+import React from "react"
+import Person from "./Person";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "Pratik",
-    };
+class App extends React.Component {
+  state = {
+    person: [
+      { name: "Pratik", age: 21 },
+      { name: "Shashank", age: 22 }
+    ],
+    show: true
   }
-
-  changeName = () => {
-    this.setState({
-      name: "Pratik Sah",
-    });
-  };
-
-  render() {
+  
+  toggleContent = () => {
+    let showState = this.state.show;
+    this.setState({show: !showState});
+  }
+  
+  deletePerson = (personIndex) => {
+    const person = this.state.person;
+    person.splice(personIndex, 1);
+    this.setState({person: person});
+  }
+  
+  render () {
+    let persons = null;
+    if (this.state.show) {
+      persons = (
+        this.state.person.map((persons, index) => {
+          return <Person click={() => this.deletePerson(index)} name={persons.name} age={persons.age}/>
+        })
+      )
+    }
+    
     return (
-      <div>
-        <label htmlFor="">Name: {this.state.name}</label>
-        <input type="text" />
-        <p>{this.state.name}</p>
-        <button onClick={this.changeName}>Change Name</button>
-      </div>
+      <>
+        <button onClick={this.toggleContent}>Toggle</button>
+        {persons}
+      </>
     );
   }
 }
 
-export default App;
+export default App
